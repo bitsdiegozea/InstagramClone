@@ -1,6 +1,7 @@
 package com.example.instagramclone.widgets
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -19,25 +20,28 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.compose.SubcomposeAsyncImage
 import com.example.instagramclone.models.Post
 import compose.icons.TablerIcons
 import compose.icons.tablericons.*
+import org.intellij.lang.annotations.JdkConstants
 
 @Composable
-fun PostWidget(post: Post) {
+fun PostWidget(post: Post, navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 15.dp)
             .shadow(elevation = 8.dp)
     ) {
-        Column() {
-
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
             buildHeader(post = post)
             buildImage(post = post)
-            buildFooter(post = post)
-
+            buildFooter(post = post, navController = navController)
         }
 
     }
@@ -105,7 +109,7 @@ fun buildImage(post: Post) {
 
 
 @Composable
-fun buildFooter(post: Post) {
+fun buildFooter(post: Post, navController: NavHostController) {
     val text = remember { mutableStateOf("") }
 
     Column {
@@ -154,7 +158,12 @@ fun buildFooter(post: Post) {
             Spacer(modifier = Modifier.height(15.dp))
 
             Text(text = "23,297 Me gusta", color = Color.White)
-            Text(text = "Ver los 389 comentarios", color = Color(0xff858585))
+            Text(
+                text = "Ver los 389 comentarios",
+                color = Color(0xff858585),
+                modifier = Modifier.clickable {
+                    navController.navigate("postDetail")
+                })
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 History(
