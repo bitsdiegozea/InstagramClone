@@ -154,15 +154,15 @@ fun buildFooter(post: Post, navController: NavHostController) {
                     modifier = Modifier.size(30.dp)
                 )
             }
-
             Spacer(modifier = Modifier.height(15.dp))
-
+            Text(text = post.title, color = Color.White)
+            Spacer(modifier = Modifier.height(5.dp))
             Text(text = "23,297 Me gusta", color = Color.White)
             Text(
                 text = "Ver los 389 comentarios",
                 color = Color(0xff858585),
                 modifier = Modifier.clickable {
-                    navController.navigate("postDetail")
+                    navController.navigate("postDetail/${post.id}")
                 })
 
             Row(verticalAlignment = Alignment.CenterVertically) {

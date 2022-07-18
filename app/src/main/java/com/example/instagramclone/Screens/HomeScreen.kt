@@ -31,7 +31,7 @@ fun HomeScreen(navController: NavHostController) {
         topBar = {
             buildAppBar()
         }, bottomBar = {
-            buildTabs(currentTab)
+            buildTabs(currentTab,navController)
         }) {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -130,7 +130,7 @@ fun buildPosts(navController: NavHostController) {
 }
 
 @Composable
-fun buildTabs(currentTab: MutableState<Int>) {
+fun buildTabs(currentTab: MutableState<Int>,navController:NavHostController) {
     val tabs = listOf(
         "Home" to TablerIcons.Home,
         "Search" to TablerIcons.Search,
@@ -148,7 +148,8 @@ fun buildTabs(currentTab: MutableState<Int>) {
             Tab(
                 selected = selected,
                 onClick = { currentTab.value = index },
-                modifier = Modifier.padding(bottom = 25.dp),
+                modifier = Modifier
+                    .padding(bottom = 25.dp)
             ) {
                 if (tabs[index].first == "Account") {
                     History(
@@ -157,6 +158,9 @@ fun buildTabs(currentTab: MutableState<Int>) {
                         alreadySeen = true,
                         width = 30,
                         height = 30,
+                        modifier = Modifier.clickable {
+                            navController.navigate("accountScreen")
+                        }
                     )
                 } else {
                     Icon(

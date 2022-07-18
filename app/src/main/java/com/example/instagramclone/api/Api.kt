@@ -1,5 +1,6 @@
 package com.example.instagramclone.api
 
+import com.example.instagramclone.models.Comment
 import com.example.instagramclone.models.Post
 import com.example.instagramclone.models.User
 
@@ -146,5 +147,48 @@ val posts = listOf(
         url = "https://randomwordgenerator.com/img/picture-generator/52e9d3474354ae14f1dc8460962e33791c3ad6e04e507749772f78d4954dcc_640.jpg",
         user = users[0],
         like = true,
+    ),
+)
+
+val comments = listOf<Comment>(
+    Comment(
+        name = "id labore ex et quam laborum",
+        body = "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    ),
+    Comment(
+        name = "quo vero reiciendis velit similique earum",
+        body = "est natus enim nihil est dolore omnis voluptatem numquam\net omnis occaecati quod ullam at\nvoluptatem error expedita pariatur\nnihil sint nostrum voluptatem reiciendis et"
+    ),
+    Comment(
+        name = "odio adipisci rerum aut animi",
+        body = "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione"
+    ),
+    Comment(
+        name = "alias odio sit",
+        body = "non et atque\noccaecati deserunt quas accusantium unde odit nobis qui voluptatem\nquia voluptas consequuntur itaque dolor\net qui rerum deleniti ut occaecati"
+    ),
+    Comment(
+        name = "vero eaque aliquid doloribus et culpa",
+        body = "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
+    ),
+    Comment(
+        name = "et fugit eligendi deleniti quidem qui sint nihil autem",
+        body = "doloribus at sed quis culpa deserunt consectetur qui praesentium\naccusamus fugiat dicta\nvoluptatem rerum ut voluptate autem\nvoluptatem repellendus aspernatur dolorem in"
+    ),
+    Comment(
+        name = "repellat consequatur praesentium vel minus molestias voluptatum",
+        body = "maiores sed dolores similique labore et inventore et\nquasi temporibus esse sunt id et\neos voluptatem aliquam\naliquid ratione corporis molestiae mollitia quia et magnam dolor"
+    ),
+    Comment(
+        name = "et omnis dolorem",
+        body = "ut voluptatem corrupti velit\nad voluptatem maiores\net nisi velit vero accusamus maiores\nvoluptates quia aliquid ullam eaque"
+    ),
+    Comment(
+        name = "provident id voluptas",
+        body = "sapiente assumenda molestiae atque\nadipisci laborum distinctio aperiam et ab ut omnis\net occaecati aspernatur odit sit rem expedita\nquas enim ipsam minus"
+    ),
+    Comment(
+        name = "eaque et deleniti atque tenetur ut quo ut",
+        body = "voluptate iusto quis nobis reprehenderit ipsum amet nulla\nquia quas dolores velit et non\naut quia necessitatibus\nnostrum quaerat nulla et accusamus nisi facilis"
     ),
 )

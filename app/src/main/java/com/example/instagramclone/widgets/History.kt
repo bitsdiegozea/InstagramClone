@@ -40,10 +40,11 @@ fun History(
     width: Int = 90,
     height: Int = 90,
     showUserName: Boolean = false,
+    modifier: Modifier = Modifier
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .padding(5.dp)
         ) {
             Box(
