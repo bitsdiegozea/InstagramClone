@@ -4,7 +4,7 @@
 
 ## Demo
 
-![alt QR scanner](md-assets/1.png)
-![alt QR scanner](md-assets/4.png)
-![alt QR scanner](md-assets/2.png)
-![alt QR scanner](md-assets/3.png)
+![demo asset](md-assets/1.png)
+![demo asset](md-assets/4.png)
+![demo asset](md-assets/2.png)
+![demo asset](md-assets/3.png).
