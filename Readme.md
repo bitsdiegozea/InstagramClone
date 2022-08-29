@@ -4,7 +4,7 @@
 
 ## Demo
 
-![demo asset](md-assets/1.png)
-![demo asset](md-assets/4.png)
-![demo asset](md-assets/2.png)
-![demo asset](md-assets/3.png).
+<img src="md-assets/1.png" style="height: 40%; width:45%;"/>
+<img src="md-assets/4.png" style="height: 40%; width:45%;"/>
+<img src="md-assets/2.png" style="height: 40%; width:45%;"/>
+<img src="md-assets/3.png" style="height: 40%; width:45%;"/>
