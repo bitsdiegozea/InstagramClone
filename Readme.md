@@ -1,6 +1,6 @@
 # Instagram Clone
 
-### this project is a basic instagram clone with some visual features from twitter made in jetpack compose
+### this project is a basic instagram clone with some visual features from instagram made in jetpack compose
 
 ## Demo
 
