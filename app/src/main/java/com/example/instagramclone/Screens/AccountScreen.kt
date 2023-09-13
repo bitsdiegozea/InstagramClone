@@ -17,12 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
 import com.example.instagramclone.api.posts
 import com.example.instagramclone.api.users
 import com.example.instagramclone.models.User
+import com.example.instagramclone.ui.theme.OutlineButtonBackground
 import com.example.instagramclone.widgets.History
 import compose.icons.TablerIcons
 import compose.icons.tablericons.*
@@ -71,15 +73,14 @@ fun AccountScreen() {
         }
     }) {
         Column(modifier = Modifier.fillMaxSize()) {
-            buildAcoountHeader()
+            BuildAccountHeader()
         }
     }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun buildAcoountHeader() {
-    val screenWidth = LocalConfiguration.current.screenWidthDp
+fun BuildAccountHeader() {
     val user = users[0]
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -108,26 +109,18 @@ fun buildAcoountHeader() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            OutlinedButton(
-                onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Color(0xff3C3F41)
-                ),
-                shape = RoundedCornerShape(5.dp),
-                modifier = Modifier
-                    .width((screenWidth * 0.80).dp)
-                    .height(35.dp),
-            ) {
-                Text(text = "Edit profile", color = Color.White)
-            }
+            CustomOutlineButton("Edit profile")
+            Spacer(modifier = Modifier.width(5.dp))
+            CustomOutlineButton("Share profile")
             Spacer(modifier = Modifier.width(5.dp))
             Card(
                 modifier = Modifier
                     .height(35.dp)
-                    .width(60.dp),
-                backgroundColor = Color(0xff3C3F41),
+                    .width(45.dp),
+                backgroundColor = OutlineButtonBackground,
                 shape = RoundedCornerShape(5.dp),
             ) {
                 Icon(
@@ -141,7 +134,7 @@ fun buildAcoountHeader() {
                 )
             }
         }
-        buildPublications()
+        BuildPublications()
         LazyVerticalGrid(cells = GridCells.Fixed(3)) {
             items(posts.size) {
                 val post = posts[it]
@@ -160,7 +153,8 @@ fun buildAcoountHeader() {
                     contentScale = ContentScale.FillHeight,
                     modifier = Modifier
                         .width(250.dp)
-                        .height(150.dp).padding(2.dp)
+                        .height(150.dp)
+                        .padding(2.dp)
                 )
             }
         }
@@ -168,7 +162,25 @@ fun buildAcoountHeader() {
 }
 
 @Composable
-fun buildPublications() {
+fun CustomOutlineButton(text: String) {
+    val screenWidth = LocalConfiguration.current.screenWidthDp
+
+    OutlinedButton(
+        onClick = { /*TODO*/ },
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = OutlineButtonBackground
+        ),
+        shape = RoundedCornerShape(5.dp),
+        modifier = Modifier
+            .height(35.dp)
+            .width((screenWidth / 2.6).dp),
+    ) {
+        Text(text = text, color = Color.White)
+    }
+}
+
+@Composable
+fun BuildPublications() {
     val currentTab = 0
     val tabs = listOf(
         "Pubs" to TablerIcons.Table,

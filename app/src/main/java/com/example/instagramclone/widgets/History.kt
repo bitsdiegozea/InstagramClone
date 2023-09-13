@@ -83,6 +83,6 @@ fun History(
                 )
             }
         }
-        if (showUserName) Text(text = userName, color = Color.White, fontSize = 12.sp)
+        if (showUserName) Text(text = userName, color = Color.White, fontSize = 11.sp)
     }
 }

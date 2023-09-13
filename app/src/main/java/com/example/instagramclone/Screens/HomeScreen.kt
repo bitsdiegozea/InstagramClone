@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.instagramclone.api.posts
 import com.example.instagramclone.api.users
 import com.example.instagramclone.widgets.History
@@ -29,20 +28,20 @@ fun HomeScreen(navController: NavHostController) {
 
     Scaffold(backgroundColor = Color.Black,
         topBar = {
-            buildAppBar()
+            BuildAppBar()
         }, bottomBar = {
-            buildTabs(currentTab,navController)
+            BuildTaps(currentTab, navController)
         }) {
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
-            buildPosts(navController)
+            BuildPosts(navController)
         }
     }
 }
 
 @Composable
-fun buildAppBar() {
+fun BuildAppBar() {
     TopAppBar(
         elevation = 0.dp,
         backgroundColor = Color.Black
@@ -68,13 +67,6 @@ fun buildAppBar() {
 
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    TablerIcons.SquarePlus,
-                    contentDescription = "SquarePlus icon",
-                    tint = Color.White,
-                    modifier = Modifier.size(30.dp)
-                )
-                Spacer(modifier = Modifier.width(15.dp))
-                Icon(
                     TablerIcons.Heart,
                     contentDescription = "Heart icon",
                     tint = Color.White,
@@ -95,13 +87,12 @@ fun buildAppBar() {
 }
 
 @Composable
-fun buildHistories() {
+fun BuildHistories() {
     LazyRow(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         items(users) { user ->
-
             History(
                 imgUrl = user.avatar,
                 userName = user.firstName,
@@ -113,10 +104,10 @@ fun buildHistories() {
 }
 
 @Composable
-fun buildPosts(navController: NavHostController) {
+fun BuildPosts(navController: NavHostController) {
     LazyColumn() {
         item {
-            buildHistories()
+            BuildHistories()
         }
         items(posts) { post ->
             Box(
@@ -130,12 +121,12 @@ fun buildPosts(navController: NavHostController) {
 }
 
 @Composable
-fun buildTabs(currentTab: MutableState<Int>,navController:NavHostController) {
+fun BuildTaps(currentTab: MutableState<Int>, navController: NavHostController) {
     val tabs = listOf(
         "Home" to TablerIcons.Home,
         "Search" to TablerIcons.Search,
+        "Upload" to TablerIcons.SquarePlus,
         "Reels" to TablerIcons.Movie,
-        "Store" to TablerIcons.Basket,
         "Account" to TablerIcons.UserCheck
     )
     TabRow(
